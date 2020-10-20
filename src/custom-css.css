@@ -1,0 +1,54 @@
+@font-face {
+	font-family: عثمان طه;
+	src: url(../src/uthman-taha.ttf);
+}
+/* 
+.ck-content .text-tiny {
+	font-size: 27em;
+}
+
+.ck-content .text-small {
+	font-size: 0.85em;
+}
+
+.ck-content .text-big {
+	font-size: 1.4em;
+}
+
+.ck-content .text-huge {
+	font-size: 1.8em;
+} */
+
+.simple-box {
+	/* padding: 10px; */
+	margin: 0;
+	background: rgba(0, 0, 0, 0.1);
+	border: solid 1px hsl(0, 0%, 77%);
+	border-radius: 2px;
+	width: fit-content;
+	/* display: inline-block; */
+}
+
+.simple-box-title {
+	/* margin-bottom: 10px !important; */
+	padding: 3px 10px !important;
+	border: 0;
+	background: transparent;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.simple-box-title,
+.simple-box-description {
+	padding: 10px;
+	margin: 0;
+	background: #fff;
+	border: solid 1px hsl(0, 0%, 77%);
+}
+
+.simple-box-title,
+.simple-box-description {
+	padding: 10px;
+	margin: 0;
+	background: #fff;
+}

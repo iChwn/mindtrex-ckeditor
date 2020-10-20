@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>CKEditor 5 – classic editor build – development sample</title>
+		<link rel="stylesheet" href="../src/custom-css.css">
+		<style>
+			body {
+				max-width: 800px;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>CKEditor 5 Test</h1>
+
+		<div id="editor"></div>
+
+		<script src="../build/ckeditor.js"></script>
+		<script src="../src/custom-attribute/custom-attribute.js"></script>
+		<script>
+			MindtrexEditor.create(document.querySelector('#editor'),{
+				language: {
+					// The UI will be English.
+					ui: 'en',
+					// But the content will be edited in Arabic.
+					content: 'en'
+				},
+				extraPlugins: [ CustomFigureAttributes ],
+			})
+				.then((editor) => {
+					window.editor = editor
+					// editor.setData(`<p>Question Answer&nbsp;<span class="placeholder">{Mantap}</span></p>`)
+					// console.log("initialized")
+					// editor.setData(`<p>
+					// 	This is Question
+					// 	<div class="simple-box">
+					// 		<span class="simple-box-title">answer</span>
+					// 	</div>
+					// </p>`)
+				})
+				.catch((error) => {
+					console.error('There was a problem initializing the editor.', error)
+				})
+		</script>
+	</body>
+</html>
