@@ -20,6 +20,7 @@
 		<script src="../src/custom-attribute/custom-attribute.js"></script>
 		<script>
 			MindtrexEditor.create(document.querySelector('#editor'),{
+				fillConfig: "dragAndDrop",
 				language: {
 					// The UI will be English.
 					ui: 'en',
@@ -41,7 +42,7 @@
 				})
 				.catch((error) => {
 					console.error('There was a problem initializing the editor.', error)
-				})
+				});
 		</script>
 	</body>
 </html>

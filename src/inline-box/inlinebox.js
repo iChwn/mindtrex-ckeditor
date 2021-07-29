@@ -3,7 +3,7 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin'
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview'
 import {
 	toWidget,
-	viewToModelPositionOutsideModelElement,
+	viewToModelPositionOutsideModelElement
 } from '@ckeditor/ckeditor5-widget/src/utils'
 import Widget from '@ckeditor/ckeditor5-widget/src/widget'
 import Swal from 'sweetalert2'
@@ -56,6 +56,7 @@ class FillTheBlankEditing extends Plugin {
 
 	_defineConverters() {
 		const conversion = this.editor.conversion
+		const editorConfig = this.editor.config._config
 
 		conversion.for('upcast').elementToElement({
 			view: {
@@ -92,6 +93,7 @@ class FillTheBlankEditing extends Plugin {
 
 			const fillView = viewWriter.createContainerElement('span', {
 				class: 'fill',
+				name: editorConfig.fillConfig,
 			})
 
 			// Insert the fill name (as a text).
@@ -154,6 +156,7 @@ class FillTheBlankUI extends Plugin {
 	init() {
 		const editor = this.editor
 		const t = editor.t
+		const editorConfig = editor.config._config
 
 		// The "fill" dropdown must be registered among the UI components of the editor
 		// to be displayed in the toolbar.
@@ -165,6 +168,7 @@ class FillTheBlankUI extends Plugin {
 				label: t('Fill'),
 				withText: true,
 				tooltip: true,
+				isVisible: !editorConfig.isFIllDisable
 			})
 
 			// Disable the fill button when the command is disabled.

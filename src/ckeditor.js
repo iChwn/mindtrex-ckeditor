@@ -9,6 +9,7 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment'
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat'
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold'
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic'
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough'
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder'
 // import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage'
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor'
@@ -20,6 +21,7 @@ import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js'
 import Heading from '@ckeditor/ckeditor5-heading/src/heading'
 import Image from '@ckeditor/ckeditor5-image/src/image'
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption'
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize'
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle'
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar'
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload'
@@ -45,12 +47,14 @@ MindtrexEditor.builtinPlugins = [
 	UploadAdapter,
 	Autoformat,
 	Bold,
+	Strikethrough,
 	Italic,
 	CKFinder,
 	// EasyImage,
 	Heading, //must be imported
 	Image,
 	ImageCaption,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
@@ -81,6 +85,7 @@ MindtrexEditor.defaultConfig = {
 			'heading',
 			'|',
 			'bold',
+			'strikethrough',
 			'italic',
 			// 'link',
 			'bulletedList',
@@ -107,9 +112,34 @@ MindtrexEditor.defaultConfig = {
 		],
 	},
 	image: {
+		styles: [
+			'alignLeft', 'alignCenter', 'alignRight'
+		],
+		resizeOptions: [
+			{
+				name: 'resizeImage:original',
+				value: null,
+				icon: 'original'
+			},
+			{
+				name: 'resizeImage:50',
+				value: '50',
+				icon: 'medium'
+			},
+			{
+				name: 'resizeImage:75',
+				value: '75',
+				icon: 'large'
+			}
+		],
 		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
+			'imageStyle:alignLeft', 
+			'imageStyle:alignCenter', 
+			'imageStyle:alignRight',
+			'|',
+			'resizeImage:50',
+			'resizeImage:75',
+			'resizeImage:original',
 			'|',
 			'imageTextAlternative',
 		],
@@ -130,6 +160,25 @@ MindtrexEditor.defaultConfig = {
 	fontSize: {
 		options: ['tiny', 'default', 'big'],
 	},
+	fillConfig: "",
+	isFIllDisable: false,
+	alertConfig: {
+		errorMessage: "You need to write the Answer!",
+		alertTitle: "Fill the Answer",
+		sweetStyle: { 
+			width: '500px',
+			padding: '1.25em',
+			confirmButtonText: "Save",
+			cancelButtonText: "Close",
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			reverseButtons: false,
+		},
+		customClass: {},
+		fillBg: {
+			class: '.fill',
+		},
+	}
 }
 
 export default MindtrexEditor
