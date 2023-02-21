@@ -14,10 +14,12 @@
 	<body>
 		<h1>CKEditor 5 Test</h1>
 
-		<div id="editor"></div>
+		<div id="editor">
+			<p><strong>Fill in the blank with the correct answer.</strong></p><p>&nbsp;</p><p>Evaluate.</p><p>&nbsp;</p><p>761 902 = 700 000 + _________ + 1000 + 900 + 2</p><p>&nbsp;</p><p>Answer =&nbsp;<span class="fill" name="FillInTheBlank">&nbsp;600000&nbsp;</span></p><p>&nbsp;</p><p><audio class="audio" controls="true"><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio></p>
+		</div>
 
 		<script src="../build/ckeditor.js"></script>
-		<script src="../src/custom-attribute/custom-attribute.js"></script>
+		<!-- <script src="../src/custom-attribute/custom-attribute.js"></script> -->
 		<script>
 			MindtrexEditor.create(document.querySelector('#editor'),{
 				fillConfig: "dragAndDrop",
@@ -27,10 +29,13 @@
 					// But the content will be edited in Arabic.
 					content: 'en'
 				},
-				extraPlugins: [ CustomFigureAttributes ],
+				// extraPlugins: [ CustomFigureAttributes ],
 			})
 				.then((editor) => {
 					window.editor = editor
+					editor.model.document.on( 'change', () => {
+							console.log( editor.getData() );
+					} );
 					// editor.setData(`<p>Question Answer&nbsp;<span class="placeholder">{Mantap}</span></p>`)
 					// console.log("initialized")
 					// editor.setData(`<p>
