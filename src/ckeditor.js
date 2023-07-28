@@ -40,7 +40,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 // import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
 
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
-import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+// import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 import MathType from '@wiris/mathtype-ckeditor5';
 import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
 import AudioEmbed from './audio-embed/audioembed';
@@ -81,7 +81,7 @@ MindtrexEditor.builtinPlugins = [
 	FontSize,
 	Alignment,
 	Fill,
-	Base64UploadAdapter,
+	// Base64UploadAdapter,
 	// CustomFigureAttributes,
 	MathType,
 	HtmlEmbed,
